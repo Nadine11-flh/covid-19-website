@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-dz</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+
+<body>
+    <script src="apicall.js"></script>
+  <div class="loading-show" id="loading-show">
+    <img src="images/return.svg" alt="">
+    
+   </div>
+    <div class="loading-hide" id="loading-hide" >
+    <header>
+        <div class="container">
+            <img src="images/logo.svg" alt="">
+           <h1>covid-dz</h1>
+
+        </div>
+    </header>
+
+    <div class="hero">
+        <img src="images/graphe.svg" alt="">
+        <h1>Get All Algeria Covid info here</h1>
+    </div>
+    <section class="general_cases">
+
+        <div class="container">
+            <h1>
+                Algeria Covid-19 Statistics
+            </h1>
+            <ul>
+
+                <li>
+                    <p>Active </p>
+                    <p class="active" id="active"> </p>
+                    <p class="active" id="active_change"> </p>
+
+                </li>
+                <li>
+                    <p>Confirmed </p>
+                    <p class="confirmed" id="confirmed"> </p>
+                    <p class="confirmed" id="confirmed_change"> </p>
+                </li>
+                <li>
+                    <p>Deaths </p>
+                    <p class="deaths" id="deaths"> </p>
+                    <p class="deaths" id="deaths_change"> </p>
+                </li>
+                <li>
+                    <p>Recovered </p>
+                    <p class="recovered" id="recovered"> </p>
+                    <p class="recovered" id="recovered_change"> </p>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+    <section class="graph_section">
+        <h2> Active Covid Cases Graph </h2>
+        <div> <canvas id="active_chart" width="400" height="200">
+
+
+            </canvas>
+        </div>
+
+
+    </section>
+    <section class="graph_section">
+        <h2> Confirmed Covid Cases Graph </h2>
+        <div><canvas id="confirmed_chart" width="400" height="200">
+
+            </canvas></div>
+
+    </section>
+    <section class="graph_section">
+        <h2> Covid deaths Graph </h2>
+        <div>
+            <canvas id="deaths_chart" width="400" height="200">
+
+            </canvas></div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="contacts">Contacts</p>
+            <ul>
+                <table>
+<tr>
+<th>RANK</th>
+<th>Location</th>
+<th>Confirmed Cases</th>
+<th>Total Deaths</th>
+<th>Recovered</th>
+<th>Active Cases</th>
+<th>% Death/Cases</th>
+<th>% Active cases/ Total cases</th>
+</tr>
+<tr>
+<td>1</td>
+<td><a href="#adrar">ADRAR</a> </td>
+<td>176</td>
+<td style="background-color: red;">5</td>
+<td>55</td>
+<td>116</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="#chlef">CHLEF</a> </td>
+<td>56</td>
+<td style="background-color: red;">2</td>
+<td>11</td>
+<td>43</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="#aghwat">AGHWAT</a> </td>
+<td>20</td>
+<td style="background-color: red;">0</td>
+<td>11</td>
+<td>9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="#om lbouagi">OM LBOUAGI</a> </td>
+<td>12</td>
+<td style="background-color: red;">1</td>
+<td>0</td>
+<td>11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="#batna"> BATNA</a></td>
+<td>11</td>
+<td style="background-color: red;">0</td>
+<td>4</td>
+<td>7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="#bejia"> BEJIA</a></td>
+<td>7</td>
+<td style="background-color: red;">0</td>
+<td>2</td>
+<td>6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="#biskra">BiSKRA</a> </td>
+<td>6</td>
+<td style="background-color:chartreuse;">0</td>
+<td>0</td>
+<td>6</td>
+<td></td>
+<td></td>
+<tr>
+<td>8</td>
+<td><a href="#basher">BASHER</a> </td>
+<td>6</td>
+<td style="background-color:chartreuse;">0</td>
+<td>0</td>
+<td>6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="#belida">BELIDA</a> </td>
+<td>5</td>
+<td style="background-color:chartreuse;">0</td>
+<td>0</td>
+<td>5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="#bouira">BOUIRA</a> </td>
+<td>5</td>
+<td style="background-color: red;">1</td>
+<td>0</td>
+
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="#tamenrast">TAMENRAST</a> </td>
+<td>4</td>
+<td style="background-color: chartreuse;">0</td>
+<td>0</td>
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="#tbessa">TBESSA</a> </td>
+<td>3</td>
+<td style="background-color: red;">1</td>
+<td>0</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="#tlemce,"TLEMCEN</a> </td>
+<td>2</td>
+<td style="background-color: chartreuse;">0</td>
+<td>0</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="#tiaret">TIARET</a> </td>
+<td>3</td>
+<td style="background-color: red;">1</td>
+<td>0</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="#tizi ouzo">TIZI OUZO</a> </td>
+<td>2</td>
+<td style="background-color: chartreuse;">0</td>
+<td>0</td>
+<td>2</td>
+ <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td><a href="#algiers">ALGIERS</a> </td>
+            <td>2</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>1</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td><a href="#djelfa">DJELFA</a> </td>
+            <td>2</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>1</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td><a href="#bauchi">DJIJEL</a> </td>
+            <td>2</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>2</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td><a href="#bauchi">SETIF</a> </td>
+            <td></td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td><a href="#bauchi">SEAIDA</a> </td>
+            <td>1</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td><a href="#bauchi">SEKIKDA</a> </td>
+            <td>1</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td><a href="#bauchi">SIDI BELABAS</a> </td>
+            <td>1</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+   <td>21</td>
+            <td>ANNABA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>GUELMA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>COSTAINTIN</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>MEDIA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>MOSTGANAM</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>26</td>
+            <td>MSILA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+    <td>27</td>
+            <td>MASCARA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>28</td>
+            <td>OUARGLA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td>ORAN</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td>BAIDT</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>ILIZI</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>32</td>
+            <td>BORDJ BOU</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>33</td>
+            <td>BOUMERDES</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+      <td>34</td>
+            <td>TEREF</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>35</td>
+            <td>TINDOF</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>36</td>
+            <td>TISEMSILT</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td>37</td>
+            <td><a href="#ouadi">OUADI</a></td>
+            <td>323</td>
+            <td style="background-color: red;">10</td>
+            <td>0</td>
+            <td>0</td>
+            <td>85</td>
+            <td>223</td>
+        </tr> 
+    <tr>
+            <td>38</td>
+            <td>KHENSHLA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+              <tr>
+            <td>39</td>
+            <td>SOUK AHRAS</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+      <tr>
+            <td>40</td>
+            <td>TIPAZA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+      <tr>
+            <td>41</td>
+            <td>MILA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+      <tr>
+            <td>42</td>
+            <td>TISEMSILT</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+      <tr>
+            <td>43</td>
+            <td>AIN DEFLA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+      <tr>
+            <td>44</td>
+            <td>NAAMA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+      <tr>
+            <td>45</td>
+            <td>AIN TIMOUSHENT</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+      <tr>
+            <td>46</td>
+            <td>GHERDIA</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+      <tr>
+            <td>47</td>
+            <td>GHILIZAN</td>
+            <td>0</td>
+            <td style="background-color: chartreuse;">0</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+        </tr>
+      <tr>
+
+    </table>
+                  
+ </br>
+                <li>
+                    <p>Facebook :</p>
+                    <a href="https://www.facebook.com/nadine.flh.98"><img src="images/facebook-app-logo.svg" alt=""></a>
+                </li>
+               
+            </ul>
+
+        </div>
+    </footer>
+</div>
+    
+</body>
+
+</html>
